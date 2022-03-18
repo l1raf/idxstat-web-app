@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+.App {
+    width: 100%;
+}
+
+.main {
+    width: 800px;
+    margin: auto;
+}
+
+.prompt {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.promptText {
+    font-size: 12pt;
+    font-family: Arial;
+    color: #464646
+}
