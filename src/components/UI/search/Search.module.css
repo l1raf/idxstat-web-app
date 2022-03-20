@@ -1,4 +1,18 @@
 .search {
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.prompt {
+    display: flex;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+
+.promptText {
+    font-size: 12pt;
+    font-family: Arial;
+    color: #464646
 }

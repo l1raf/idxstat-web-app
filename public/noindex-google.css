@@ -1,0 +1,11 @@
+meta[name="googlebot"][content~="noindex,nofollow"], meta[name="googlebot"][content~="nofollow,noindex"] {
+    background-color: #fb0303;
+}
+
+meta[name="googlebot"][content~="noindex"] {
+    background-color: #ff6868;
+}
+
+meta[name="googlebot"][content~="nofollow"] {
+    background-color: #ffc1c1;
+}

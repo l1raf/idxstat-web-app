@@ -17,6 +17,8 @@
 }
 
 .colorDef {
+    margin-top: 32px;
     justify-content: center;
     display: flex;
+    flex-direction: column;
 }

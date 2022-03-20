@@ -12,11 +12,6 @@ function App() {
         <Typography style={{ textAlign: "center", margin: "40px", marginTop: "60px", fontWeight: "bold" }} variant="h4">
           Index Checker
         </Typography>
-        <div className="prompt">
-          <p className="promptText">
-            Enter a URL in our Index Checker Tool and check its index status
-          </p>
-        </div>
         <Search placeholder="https://www.example.com" />
       </div>
     </div>

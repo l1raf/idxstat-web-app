@@ -16,15 +16,3 @@
     width: 800px;
     margin: auto;
 }
-
-.prompt {
-    display: flex;
-    justify-content: center;
-    margin: 30px;
-}
-
-.promptText {
-    font-size: 12pt;
-    font-family: Arial;
-    color: #464646
-}

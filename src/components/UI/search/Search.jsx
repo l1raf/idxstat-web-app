@@ -50,6 +50,11 @@ const Search = ({ placeholder }) => {
 
     return (
         <div className={classes.search}>
+            <div className={classes.prompt}>
+                <p className={classes.promptText}>
+                    Enter a URL in our Index Checker Tool and check its index status
+                </p>
+            </div>
             <Stack direction="row" spacing={2}>
                 <TextField
                     fullWidth

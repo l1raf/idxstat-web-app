@@ -1,3 +1,4 @@
+import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import React from "react";
 import IndexingService from "../../../API/IndexingService";
 import Loader from "../loader/Loader";
@@ -12,28 +13,30 @@ const SearchResult = ({ url, googleResponse, yandexResponse,
     return (
         <div className={classes.searchResult}>
             <div className={classes.tableContainer}>
-                <table className={classes.table}>
-                    <thead>
-                        <tr>
-                            <th>Страница</th>
-                            <th>Яндекс</th>
-                            <th>Google</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{url}</td>
-                            <td>{isYandexResponseLoading
-                                ? <Loader style={{ height: "20px", width: "20px" }} />
-                                : yandexResponse}
-                            </td>
-                            <td>{isGoogleResponseLoading
-                                ? <Loader style={{ height: "20px", width: "20px" }} />
-                                : googleResponse}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table" className={classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Страница</TableCell>
+                            <TableCell>Яндекс</TableCell>
+                            <TableCell>Google</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>{url}</TableCell>
+                            <TableCell>
+                                {isYandexResponseLoading
+                                    ? <Loader style={{ height: "20px", width: "20px" }} />
+                                    : yandexResponse}
+                            </TableCell>
+                            <TableCell>
+                                {isGoogleResponseLoading
+                                    ? <Loader style={{ height: "20px", width: "20px" }} />
+                                    : googleResponse}
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </div>
             {(googleResponse || yandexResponse) &&
                 (<PageView
