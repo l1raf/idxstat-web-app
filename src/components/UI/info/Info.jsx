@@ -3,7 +3,7 @@ import React from "react";
 
 const Info = () => {
     return (
-        <div style={{ margin: "50px" }}>
+        <div style={{ marginTop: "16px" }}>
             <Typography style={{ textAlign: "center", margin: "40px", marginTop: "60px", fontWeight: "bold" }} variant="h4">
                 What is Index Checker?
             </Typography>

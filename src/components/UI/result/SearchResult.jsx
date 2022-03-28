@@ -1,50 +1,36 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import React from "react";
 import IndexingService from "../../../API/IndexingService";
-import Loader from "../loader/Loader";
+import IndexingResult from "./IndexingResult/IndexingResult";
 import PageView from "./PageView/PageView";
+import RobotsResult from "./RobotsResult/RobotsResult";
 import classes from "./SearchResult.module.css";
 
 const SearchResult = ({ url, googleResponse, yandexResponse,
-    isYandexResponseLoading, isGoogleResponseLoading }) => {
+    isYandexResponseLoading, isGoogleResponseLoading, robotsResponse }) => {
 
     const webPageUrl = IndexingService.getSource(url);
 
     return (
         <div className={classes.searchResult}>
             <div className={classes.tableContainer}>
-                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table" className={classes.table}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Страница</TableCell>
-                            <TableCell>Яндекс</TableCell>
-                            <TableCell>Google</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell>{url}</TableCell>
-                            <TableCell>
-                                {isYandexResponseLoading
-                                    ? <Loader style={{ height: "20px", width: "20px" }} />
-                                    : yandexResponse}
-                            </TableCell>
-                            <TableCell>
-                                {isGoogleResponseLoading
-                                    ? <Loader style={{ height: "20px", width: "20px" }} />
-                                    : googleResponse}
-                            </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
+                <IndexingResult
+                    isGoogleResponseLoading={isGoogleResponseLoading}
+                    isYandexResponseLoading={isYandexResponseLoading}
+                    yandexResponse={yandexResponse}
+                    googleResponse={googleResponse}
+                    url={url}
+                />
             </div>
+            {(robotsResponse && (robotsResponse.yandex.length > 0 || robotsResponse.google.length > 0))
+                && (<RobotsResult robotsResponse={robotsResponse} />)}
             {(googleResponse || yandexResponse) &&
                 (<PageView
                     webPageUrl={webPageUrl}
                     isGoogleResponseLoading={isGoogleResponseLoading}
                     isYandexResponseLoading={isYandexResponseLoading}
                     googleResponse={googleResponse}
-                    yandexResponse={yandexResponse} />)}
+                    yandexResponse={yandexResponse}
+                />)}
         </div>
     );
 }

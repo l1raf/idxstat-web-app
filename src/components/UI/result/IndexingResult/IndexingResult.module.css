@@ -1,0 +1,21 @@
+.table {
+	border: none;
+	border-collapse: separate;
+}
+
+.table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	font-size: 15px;
+}
+
+.table tbody td {
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	font-size: 15px;
+	vertical-align: top;
+	background: rgb(250, 250, 255);
+}

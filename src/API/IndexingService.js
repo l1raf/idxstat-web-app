@@ -1,19 +1,19 @@
-import axios from "axios"
+import axios from "axios";
 
 export default class IndexingService {
     static getSource(url) {
-        return `https://localhost:7094/source?uri=${url}`
+        return `${process.env.REACT_APP_API_URL}indexing/source?uri=${url}`;
     }
 
-    static async getYandexResponse(url) {
+    static async getYandexIndexing(url) {
         //TODO: replace with real call
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}status/fake?uri=${url}&engine=yandex`)
-        return response.data
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}indexing/status/fake?uri=${url}&engine=yandex`);
+        return response.data;
     }
 
-    static async getGoogleResponse(url) {
+    static async getGoogleIndexing(url) {
         //TODO: replace with real call
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}status/fake?uri=${url}&engine=google`)
-        return response.data
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}indexing/status/fake?uri=${url}&engine=google`);
+        return response.data;
     }
 }

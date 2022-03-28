@@ -12,7 +12,7 @@ function App() {
         <Typography style={{ textAlign: "center", margin: "40px", marginTop: "60px", fontWeight: "bold" }} variant="h4">
           Index Checker
         </Typography>
-        <Search placeholder="https://www.example.com" />
+        <Search />
       </div>
     </div>
   );
