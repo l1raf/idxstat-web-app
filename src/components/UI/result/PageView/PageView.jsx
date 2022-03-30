@@ -1,8 +1,7 @@
-import { Button, Collapse, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { Box, Button, Collapse, LinearProgress, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import React, { useState } from "react";
 import IndexingService from "../../../../API/IndexingService";
 import ColorDefinition from "../../../ColorDefinition/ColorDefinition";
-import Loader from "../../loader/Loader";
 import classes from "./PageView.module.css";
 
 const PageView = ({ webPageUrl, isGoogleResponseLoading,
@@ -15,7 +14,7 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
     const googleUrl = IndexingService.getSourceForGoogle(webPageUrl);
     const [engine, setEngine] = useState("yandex");
 
-    const pageLoaded = () => {
+    async function pageLoaded() {
         setIsPageLoading(false);
     };
 
@@ -47,14 +46,16 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
                     value={engine}
                     exclusive
                     onChange={switchUrl}>
-                    <ToggleButton value="yandex">Yandex</ToggleButton>
-                    <ToggleButton value="google">Google</ToggleButton>
+                    <ToggleButton style={{ height: "32px" }} value="yandex">Yandex</ToggleButton>
+                    <ToggleButton style={{ height: "32px" }} value="google">Google</ToggleButton>
                 </ToggleButtonGroup>
-                {(isPageLoading && ((!isYandexResponseLoading && yandexResponse) || (!isGoogleResponseLoading && googleResponse))) ? (
-                    <div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
-                        <Loader style={{ height: "50px", width: "50px" }} />
+                {(isPageLoading && ((!isYandexResponseLoading && yandexResponse) || (!isGoogleResponseLoading && googleResponse)))
+                    ? (<div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
+                        <Box sx={{ width: '100%' }}>
+                            <LinearProgress />
+                        </Box>
                     </div>
-                ) : null}
+                    ) : null}
                 <iframe
                     style={{ marginTop: "32px" }}
                     title="web page"

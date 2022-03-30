@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./IndexingResult.module.css";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import Loader from "../../loader/Loader";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const IndexingResult = ({ isYandexResponseLoading, isGoogleResponseLoading, yandexResponse, googleResponse, url }) => {
 
@@ -19,12 +19,12 @@ const IndexingResult = ({ isYandexResponseLoading, isGoogleResponseLoading, yand
                     <TableCell>{url}</TableCell>
                     <TableCell>
                         {isYandexResponseLoading
-                            ? <Loader style={{ height: "20px", width: "20px" }} />
+                            ? <CircularProgress style={{ height: "24px", width: "24px" }} />
                             : yandexResponse}
                     </TableCell>
                     <TableCell>
                         {isGoogleResponseLoading
-                            ? <Loader style={{ height: "20px", width: "20px" }} />
+                            ? <CircularProgress style={{ height: "24px", width: "24px" }} />
                             : googleResponse}
                     </TableCell>
                 </TableRow>

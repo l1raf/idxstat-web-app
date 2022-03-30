@@ -2,6 +2,10 @@ noindex {
     background-color: #0307fb;
 }
 
+* {
+    background-color: #03defb;
+}
+
 a[ref~="nofollow"], a[rel~="nofollow"] {
     background-color: #03defb;
 }
