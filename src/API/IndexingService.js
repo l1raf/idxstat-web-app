@@ -1,8 +1,12 @@
 import axios from "axios";
 
 export default class IndexingService {
-    static getSource(url) {
-        return `${process.env.REACT_APP_API_URL}indexing/source?uri=${url}`;
+    static getSourceForYandex(url) {
+        return `${process.env.REACT_APP_API_URL}indexing/source?uri=${url}&cssFileAddress=http://localhost:3000/noindex-yandex.css`;
+    }
+
+    static getSourceForGoogle(url) {
+        return `${process.env.REACT_APP_API_URL}indexing/source?uri=${url}&cssFileAddress=http://localhost:3000/noindex-google.css`;
     }
 
     static async getYandexIndexing(url) {

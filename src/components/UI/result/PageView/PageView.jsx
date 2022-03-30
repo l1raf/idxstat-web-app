@@ -1,5 +1,6 @@
-import { Button, Collapse } from "@mui/material";
+import { Button, Collapse, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import React, { useState } from "react";
+import IndexingService from "../../../../API/IndexingService";
 import ColorDefinition from "../../../ColorDefinition/ColorDefinition";
 import Loader from "../../loader/Loader";
 import classes from "./PageView.module.css";
@@ -9,10 +10,17 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
 
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [show, setShow] = useState(false);
-    const [showColorDefText, setShowText] = useState("Show color defenition")
+    const [showColorDefText, setShowText] = useState("Show color defenition");
+    const yandexUrl = IndexingService.getSourceForYandex(webPageUrl);
+    const googleUrl = IndexingService.getSourceForGoogle(webPageUrl);
+    const [engine, setEngine] = useState("yandex");
 
     const pageLoaded = () => {
         setIsPageLoading(false);
+    };
+
+    const switchUrl = (event, newEngine) => {
+        setEngine(newEngine);
     };
 
     function showColorDef() {
@@ -33,16 +41,25 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
                     <ColorDefinition />
                 </Collapse>
             </div>
-            {(isPageLoading && ((!isYandexResponseLoading && yandexResponse) || (!isGoogleResponseLoading && googleResponse))) ? (
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
-                    <Loader style={{ height: "50px", width: "50px" }} />
-                </div>
-            ) : null}
             <div style={{ marginTop: "32px" }}>
+                <ToggleButtonGroup
+                    color="primary"
+                    value={engine}
+                    exclusive
+                    onChange={switchUrl}>
+                    <ToggleButton value="yandex">Yandex</ToggleButton>
+                    <ToggleButton value="google">Google</ToggleButton>
+                </ToggleButtonGroup>
+                {(isPageLoading && ((!isYandexResponseLoading && yandexResponse) || (!isGoogleResponseLoading && googleResponse))) ? (
+                    <div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
+                        <Loader style={{ height: "50px", width: "50px" }} />
+                    </div>
+                ) : null}
                 <iframe
+                    style={{ marginTop: "32px" }}
                     title="web page"
                     className={classes.searchResultIframe}
-                    src={webPageUrl}
+                    src={engine === "yandex" ? yandexUrl : googleUrl}
                     onLoad={pageLoaded} />
             </div>
         </div>

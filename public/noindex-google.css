@@ -1,11 +1,15 @@
+a[ref~="nofollow"], a[rel~="nofollow"] {
+    background-color: #03defb;
+}
+
 meta[name="googlebot"][content~="noindex,nofollow"], meta[name="googlebot"][content~="nofollow,noindex"] {
-    background-color: #fb0303;
+    background-color: #4d03fb;
 }
 
 meta[name="googlebot"][content~="noindex"] {
-    background-color: #ff6868;
+    background-color: #906ace;
 }
 
 meta[name="googlebot"][content~="nofollow"] {
-    background-color: #ffc1c1;
+    background-color: #bd56ec;
 }

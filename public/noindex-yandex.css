@@ -1,0 +1,19 @@
+noindex {
+    background-color: #0307fb;
+}
+
+a[ref~="nofollow"], a[rel~="nofollow"] {
+    background-color: #03defb;
+}
+
+meta[name="yandex"][content~="noindex,nofollow"], meta[name="googlebot"][content~="nofollow,noindex"] {
+    background-color: #4d03fb;
+}
+
+meta[name="yandex"][content~="noindex"] {
+    background-color: #906ace;
+}
+
+meta[name="yandex"][content~="nofollow"] {
+    background-color: #bd56ec;
+}
