@@ -63,7 +63,7 @@ const Search = () => {
         <div className={classes.search}>
             <div className={classes.prompt}>
                 <p className={classes.promptText}>
-                    Enter a URL in our Index Checker Tool and check its index status
+                    Введите URL-адрес страницы для того, чтобы проверить её индексацию.
                 </p>
             </div>
             <Stack direction="row" spacing={2}>
@@ -75,7 +75,7 @@ const Search = () => {
                     value={inputUrl}
                     onChange={e => setInputUrl(e.target.value)}
                 />
-                <Button variant="contained" onClick={search}>Check</Button>
+                <Button variant="contained" onClick={search}>Проверить</Button>
             </Stack>
             {!showResult && (<Info />)}
             {showResult &&

@@ -2,15 +2,17 @@ import React from "react";
 import classes from "./IndexingResult.module.css";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import CircularProgress from '@mui/material/CircularProgress';
+import CloseIcon from '@mui/icons-material/Close';
+import DoneIcon from '@mui/icons-material/Done';
 
 const IndexingResult = ({ isYandexResponseLoading, isGoogleResponseLoading, yandexResponse, googleResponse, url }) => {
 
     return (
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table" className={classes.table}>
+        <Table className={classes.table}>
             <TableHead>
                 <TableRow>
                     <TableCell>Страница</TableCell>
-                    <TableCell>Яндекс</TableCell>
+                    <TableCell>Yandex</TableCell>
                     <TableCell>Google</TableCell>
                 </TableRow>
             </TableHead>
@@ -20,12 +22,14 @@ const IndexingResult = ({ isYandexResponseLoading, isGoogleResponseLoading, yand
                     <TableCell>
                         {isYandexResponseLoading
                             ? <CircularProgress style={{ height: "24px", width: "24px" }} />
-                            : yandexResponse}
+                            : (yandexResponse ? <DoneIcon sx={{ color: "green" }} /> : <CloseIcon sx={{ color: "red" }} />)}
+                        {yandexResponse}
                     </TableCell>
                     <TableCell>
                         {isGoogleResponseLoading
                             ? <CircularProgress style={{ height: "24px", width: "24px" }} />
-                            : googleResponse}
+                            : (googleResponse ? <DoneIcon sx={{ color: "green" }} /> : <CloseIcon sx={{ color: "red" }} />)}
+                        {googleResponse}
                     </TableCell>
                 </TableRow>
             </TableBody>

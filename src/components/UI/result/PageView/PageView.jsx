@@ -9,7 +9,7 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
 
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [show, setShow] = useState(false);
-    const [showColorDefText, setShowText] = useState("Show color defenition");
+    const [showColorDefText, setShowText] = useState("Показать обозначение цветов");
     const yandexUrl = IndexingService.getSourceForYandex(webPageUrl);
     const googleUrl = IndexingService.getSourceForGoogle(webPageUrl);
     const [engine, setEngine] = useState("yandex");
@@ -26,9 +26,9 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
         setShow(!show);
 
         if (show) {
-            setShowText("Show color defenition");
+            setShowText("Показать обозначение цветов");
         } else {
-            setShowText("Hide color defenition");
+            setShowText("Спрятать обозначение цветов");
         }
     }
 
@@ -46,7 +46,7 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
                     value={engine}
                     exclusive
                     onChange={switchUrl}>
-                    <ToggleButton style={{ height: "32px" }} value="yandex">Yandex</ToggleButton>
+                    <ToggleButton style={{ height: "32px" }} value="yandex">Яндекс</ToggleButton>
                     <ToggleButton style={{ height: "32px" }} value="google">Google</ToggleButton>
                 </ToggleButtonGroup>
                 {(isPageLoading && ((!isYandexResponseLoading && yandexResponse) || (!isGoogleResponseLoading && googleResponse)))

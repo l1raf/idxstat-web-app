@@ -9,8 +9,8 @@ const ColorDefinition = () => {
                 <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Color</TableCell>
-                            <TableCell>Definition</TableCell>
+                            <TableCell>Цвет</TableCell>
+                            <TableCell>Значение</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -19,9 +19,7 @@ const ColorDefinition = () => {
                                 <span className={classes.dot} style={{ backgroundColor: "#0307fb" }} />
                             </TableCell>
                             <TableCell>
-                                <code>
-                                    &lt;noindex&gt;
-                                </code>
+                                Блоки, выделенные <code>&lt;noindex&gt;</code>
                             </TableCell>
                         </TableRow>
                         <TableRow>
@@ -30,11 +28,11 @@ const ColorDefinition = () => {
                             </TableCell>
                             <TableCell>
                                 <code>
-                                    nofollow links
+                                    Ссылки, помеченные как nofollow
                                 </code>
                             </TableCell>
                         </TableRow>
-                        <TableRow>
+                        {/* <TableRow>
                             <TableCell>
                                 <span className={classes.dot} style={{ backgroundColor: "#fb0303" }} />
                             </TableCell>
@@ -63,7 +61,7 @@ const ColorDefinition = () => {
                                     &lt;meta name="robots" content="nofollow" /&gt;
                                 </code>
                             </TableCell>
-                        </TableRow>
+                        </TableRow> */}
                     </TableBody>
                 </Table>
             </div>

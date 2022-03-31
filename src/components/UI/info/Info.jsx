@@ -5,51 +5,58 @@ const Info = () => {
     return (
         <div style={{ marginTop: "16px" }}>
             <Typography style={{ textAlign: "center", margin: "40px", marginTop: "60px", fontWeight: "bold" }} variant="h4">
-                What is Index Checker?
+                Индексация сайта
             </Typography>
             <Typography variant="body1" textAlign="left">
-                This Index Checker tool is extremely useful for many website owners and webmasters because a quick
-                indexing test can tell you how if your web page has been indexed by Google and Yandex.
+                Чтобы открыть онлайн-магазин, запустить информационный или развлекательный портал в сети необходим
+                сайт – это, буквально, место или сегмент в виртуальном пространстве с уникальным адресом (домен),
+                где размещается контент и файлы по проекту. Но, чтобы ресурс можно было найти среди других, его
+                необходимо «прописать» в специальной базе поисковых систем – индексе.
             </Typography>
-            <Typography variant="body1" textAlign="left">
-                Simply enter the URL that you want to check in the space provided and click on the “Check” button,
-                and then the tool will process your request. It will generate the result in just a few seconds which
-                determines if the URL is indexed by google and yandex or not.
+            <Typography style={{ marginTop: "16px" }} variant="body1" textAlign="left">
+                Индексация страницы – это процесс сбора, проверки и внесения информации о контенте сайта в базу
+                поисковых систем. Такая непростая и трудоемкая работа поручается специальным роботам, которые
+                целиком обходят весь сайт и, следуя установленным алгоритмам ПС, собирают информацию со страниц.
+                При индексации учитываются внешние и внутренние ссылки, графические элементы, текстовое
+                наполнение и другое. Если ресурс проходит проверку, то он вносится в индекс ПС,
+                то есть пользователи смогут его найти по поисковым запросам.
             </Typography>
             <Typography style={{ textAlign: "center", margin: "40px", marginTop: "60px", fontWeight: "bold" }} variant="h4">
-                What does Google index mean?
+                Что такое robots.txt?
             </Typography>
             <Typography variant="body1" textAlign="left">
-                Google continuously visits millions of websites and creates an index for each website that gets its interest.
-                However, it may not index every site that it visits. If Google does not find keywords, names, or topics
-                that are of interest, it will likely not index it.
+                Как спрятать от проверки информацию на страницах и зачем это делать? Обычно запрет на сканирование
+                ботами ПС устанавливают, чтобы скрыть от публичного просмотра технические и служебные страницы,
+                конфиденциальную информацию, ресурсы в разработке, дубли и другое. То есть, чтобы качественно
+                продвигаться в поиске, нужно знать, какие данные показывать, а какие скрывать.
+            </Typography>
+            <Typography style={{ marginTop: "16px" }} variant="body1" textAlign="left">
+                Robots.txt — это текстовый файл, который содержит параметры индексирования сайта для роботов
+                поисковых систем. В документе можно запретить индексацию как отдельной страницы, так и всего сайта
+                целиком. Этот файл как раз и устанавливает правила для роботов ПС. Для запрета используются
+                два основных оператора: указание адресата (User-agent) и запрещающая директива (Disallow),
+                которая ставит «шлагбаум» для бота. Например, если сайт ещё не готов к запуску, то в файле
+                можно прописать следующий код: User-agent: * и на следующей строке Disallow: /.
+                Так вы закроете весь ресурс для роботов ПС.
+            </Typography>
+            <Typography style={{ textAlign: "center", margin: "40px", marginTop: "60px", fontWeight: "bold" }} variant="h4">
+                На что влияет индексация?
             </Typography>
             <Typography variant="body1" textAlign="left">
-                This is the reason why many website owners, webmasters, SEO professionals worry about Google indexing
-                their websites. Because no one knows except Google how it operates and the measures it sets for
-                indexing web pages. All we know is that the three aspects that Google usually looks for and takes
-                into account when indexing a web page are relevance of content, authority, and traffic.
+                Благодаря «прописке» в поисковых системах Яндекса и Гугла, сайты попадают в поле видимости
+                пользователей и потенциальных клиентов. Сама по себе целевая страница в сети, онлайн-магазин
+                или Landing Page не представляет ценности. Полезность её определяют посетители. Соответственно,
+                находясь в индексе и регулярно обновляя контент, ресурс растет в выдаче. Это увеличивает
+                приток трафика и помогает развивать проект.
             </Typography>
-            <Typography variant="body1" textAlign="left">
-                Also, there is no definite time as to when Google will visit a particular site or if it will choose
-                to index it. That is why it is important for a website owner to make sure that all issues on your
-                web pages are fixed and ready for search engine optimization. To help you identify which pages on
-                your website are not yet indexed by Google, this Google site index checker tool will do its job for you.
+            <Typography style={{ marginTop: "16px" }} variant="body1" textAlign="left">
+                Роботы ПС оценивают не только качество контента, но и поведенческие факторы, посещаемость,
+                вовлеченность. С помощью этих метрик определяется полезность сайта. Чем лучше поведенческие
+                факторы аудитории, тем выше страницы в ранге.
             </Typography>
-            <Typography variant="body1" textAlign="left">
-                If your website is not yet indexed, don't worry because Google works non-stop in checking and
-                indexing websites. You may want to focus on improving the content on your website and increasing
-                your traffic because as traffic builds up, your website also gains relevance and authority which
-                will then make Google notice it and start ranking it. Just keep checking the Google Indexing status
-                using this Google index checker tool and work on getting a better performance for your website.
-                This may usually take time to gain more organic traffic, especially for newly launched websites.
-            </Typography>
-            <Typography variant="body1" textAlign="left">
-                Improving your links can also help you, you must use genuine links only. Do not go for paid
-                link farms as they can do more harm than good to your website. Once your website has been indexed
-                by Google, you should work hard to maintain it. You can achieve this by always updating your website
-                so that it is always fresh and you should also make sure that you retain its relevance and authority
-                so it will get a good position in page ranking.
+            <Typography style={{ marginTop: "16px", marginBottom: "54px" }} variant="body1" textAlign="left">
+                Первые 20 строк поисковой выдаче собирают 95% всего трафика по запросу. Поэтому быть в
+                индексе на хорошем счету у ПС – это гарантия успешного продвижения и высоких конверсий.
             </Typography>
         </div>
     );

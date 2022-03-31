@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <div className="main">
         <Typography style={{ textAlign: "center", margin: "40px", marginTop: "60px", fontWeight: "bold" }} variant="h4">
-          Index Checker
+          Проверка индексации страницы
         </Typography>
         <Search />
       </div>

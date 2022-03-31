@@ -23,7 +23,8 @@ const RobotsResult = ({ robotsResponse }) => {
     return (
         <div className={classes.robotsResult}>
             <Typography sx={{ margin: 2, fontSize: "12pt" }}>
-                Not indexed pages from robots.txt found <a href={robotsResponse.robotsUri}>here</a>
+                Запрещенные для основных роботов поисковых систем страницы и разделы из файла robots.txt, 
+                найденного <a href={robotsResponse.robotsUri} target="_blank" rel="noopener noreferrer">здесь</a>.
             </Typography>
             <div className={classes.tableContainer}>
                 <TableContainer sx={{ maxHeight: 256 }}>
