@@ -1,11 +1,12 @@
 import React from "react";
+import HeadersResult from "./headers/HeadersResult";
 import IndexingResult from "./IndexingResult/IndexingResult";
 import PageView from "./PageView/PageView";
 import RobotsResult from "./RobotsResult/RobotsResult";
 import classes from "./SearchResult.module.css";
 
-const SearchResult = ({ url, googleResponse, yandexResponse,
-    isYandexResponseLoading, isGoogleResponseLoading, robotsResponse }) => {
+const SearchResult = ({ url, googleResponse, yandexResponse, isYandexResponseLoading,
+    isGoogleResponseLoading, robotsResponse, headersResponse, robotsError, headersError }) => {
 
     return (
         <div className={classes.searchResult}>
@@ -20,7 +21,9 @@ const SearchResult = ({ url, googleResponse, yandexResponse,
             </div>
             {(robotsResponse && (robotsResponse.yandex.length > 0 || robotsResponse.google.length > 0))
                 && (<RobotsResult robotsResponse={robotsResponse} />)}
-            {(googleResponse || yandexResponse) &&
+            {(headersResponse && headersResponse.headers.length > 0)
+                && (<HeadersResult headersResponse={headersResponse} />)}
+            {(googleResponse || yandexResponse) && !(robotsError && headersError) &&
                 (<PageView
                     webPageUrl={url}
                     isGoogleResponseLoading={isGoogleResponseLoading}

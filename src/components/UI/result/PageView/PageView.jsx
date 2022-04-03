@@ -1,5 +1,6 @@
 import { Box, Button, Collapse, LinearProgress, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import IndexingService from "../../../../API/IndexingService";
 import ColorDefinition from "../../../ColorDefinition/ColorDefinition";
 import classes from "./PageView.module.css";
@@ -19,6 +20,7 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
     };
 
     const switchUrl = (event, newEngine) => {
+        setIsPageLoading(true);
         setEngine(newEngine);
     };
 
@@ -57,6 +59,9 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
                     </div>
                     ) : null}
                 <iframe
+                //allow-popups-to-escape-sandbox
+                //allow-top-navigation
+                    sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
                     style={{ marginTop: "32px" }}
                     title="web page"
                     className={classes.searchResultIframe}

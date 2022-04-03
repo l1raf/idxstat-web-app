@@ -16,20 +16,26 @@ const Search = () => {
     const [googleResponse, setGoogleResponse] = useState("");
     const [yandexResponse, setYandexResponse] = useState("");
     const [robotsResponse, setRobotsResponse] = useState({ robotsUri: "", yandex: [], google: [] });
+    const [headersResponse, setHeadersResponse] = useState({ headers: [] });
 
-    const [fetchYandexResponse, isYandexResponseLoading, yandexError] = useFetchingAsync(async () => {
+    const [fetchYandexStatus, isYandexResponseLoading, yandexError] = useFetchingAsync(async () => {
         const response = await IndexingService.getYandexIndexing(inputUrl);
         setYandexResponse(response.totalSearchResults);
     });
 
-    const [fetchGoogleResponse, isGoogleResponseLoading, googleError] = useFetchingAsync(async () => {
+    const [fetchGoogleStatus, isGoogleResponseLoading, googleError] = useFetchingAsync(async () => {
         const response = await IndexingService.getGoogleIndexing(inputUrl);
         setGoogleResponse(response.totalSearchResults);
     });
 
-    const [fetchRobotsResponse, , robotsError] = useFetchingAsync(async () => {
+    const [fetchRobotsTxt, , robotsError] = useFetchingAsync(async () => {
         const response = await RobotsService.getRobotsInfo(inputUrl)
         setRobotsResponse(response);
+    });
+
+    const [fetchHeaders, , headersError] = useFetchingAsync(async () => {
+        const response = await RobotsService.getRobotsHeaders(inputUrl)
+        setHeadersResponse(response);
     });
 
     const search = () => {
@@ -37,11 +43,17 @@ const Search = () => {
             return;
         }
 
+        setRobotsResponse({ robotsUri: "", yandex: [], google: [] })
+        setHeadersResponse({ headers: [] });
+        setGoogleResponse("");
+        setYandexResponse("");
+
         setUrl(inputUrl);
         setShowResult(true);
-        fetchYandexResponse();
-        fetchGoogleResponse();
-        fetchRobotsResponse();
+        fetchYandexStatus();
+        fetchGoogleStatus();
+        fetchRobotsTxt();
+        fetchHeaders();
 
         if (yandexError) {
             console.error("yandex: " + yandexError);
@@ -56,6 +68,11 @@ const Search = () => {
         if (robotsError) {
             console.error("robots: " + yandexError);
             setRobotsResponse({ robotsUri: "", yandex: [], google: [] });
+        }
+
+        if (headersError) {
+            console.error("headers: ", headersError);
+            setHeadersResponse({ headers: [] });
         }
     };
 
@@ -86,6 +103,9 @@ const Search = () => {
                     isYandexResponseLoading={isYandexResponseLoading}
                     isGoogleResponseLoading={isGoogleResponseLoading}
                     robotsResponse={robotsResponse}
+                    headersResponse={headersResponse}
+                    robotsError={robotsError}
+                    headersError={headersError}
                 />)}
         </div>
     );

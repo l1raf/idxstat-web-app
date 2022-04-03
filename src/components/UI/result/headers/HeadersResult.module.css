@@ -1,11 +1,11 @@
-.robotsResult {
+.headersResult {
 	margin-top: 48px;
     justify-content: center;
     text-align: left;
 }
 
 .tableContainer {
-	background: #fff;
+    background: #fff;
 	padding: 20px;
 	border: 2px solid #f9f9f9;
 	-webkit-box-shadow: 0px 23px 33.6px 6.4px rgba(105, 105, 105, 0.1);

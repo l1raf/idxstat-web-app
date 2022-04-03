@@ -11,10 +11,11 @@
 .App {
     width: 100%;
     font-family: Arial;
-    color: #464646
+    color: #464646;
 }
 
 .main {
     width: 800px;
     margin: auto;
+    margin-bottom: 56px;
 }

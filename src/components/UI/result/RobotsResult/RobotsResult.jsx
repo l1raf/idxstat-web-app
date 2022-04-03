@@ -23,12 +23,12 @@ const RobotsResult = ({ robotsResponse }) => {
     return (
         <div className={classes.robotsResult}>
             <Typography sx={{ margin: 2, fontSize: "12pt" }}>
-                Запрещенные для основных роботов поисковых систем страницы и разделы из файла robots.txt, 
+                Запрещенные для основных роботов поисковых систем страницы и разделы из файла robots.txt,
                 найденного <a href={robotsResponse.robotsUri} target="_blank" rel="noopener noreferrer">здесь</a>.
             </Typography>
             <div className={classes.tableContainer}>
                 <TableContainer sx={{ maxHeight: 256 }}>
-                    <Table sx={{ minWidth: 650, maxHeight: 440 }} size="small" aria-label="a dense table" className={classes.table}>
+                    <Table size="small" aria-label="a dense table" className={classes.table}>
                         <TableHead>
                             <TableRow>
                                 <TableCell>Yandex</TableCell>
@@ -38,15 +38,15 @@ const RobotsResult = ({ robotsResponse }) => {
                         <TableBody>
                             {rows.map((row, index) => (
                                 <TableRow key={index}>
-                                    <TableCell>{row.yandex}</TableCell>
-                                    <TableCell>{row.google}</TableCell>
+                                    <TableCell width="50%">{row.yandex}</TableCell>
+                                    <TableCell width="50%">{row.google}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </TableContainer>
             </div>
-        </div>
+        </div >
     );
 }
 

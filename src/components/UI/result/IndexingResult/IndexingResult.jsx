@@ -12,24 +12,22 @@ const IndexingResult = ({ isYandexResponseLoading, isGoogleResponseLoading, yand
             <TableHead>
                 <TableRow>
                     <TableCell>Страница</TableCell>
-                    <TableCell>Yandex</TableCell>
+                    <TableCell>Яндекс</TableCell>
                     <TableCell>Google</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 <TableRow>
-                    <TableCell>{url}</TableCell>
-                    <TableCell>
+                    <TableCell width="60%">{url}</TableCell>
+                    <TableCell width="20%">
                         {isYandexResponseLoading
                             ? <CircularProgress style={{ height: "24px", width: "24px" }} />
                             : (yandexResponse ? <DoneIcon sx={{ color: "green" }} /> : <CloseIcon sx={{ color: "red" }} />)}
-                        {yandexResponse}
                     </TableCell>
-                    <TableCell>
+                    <TableCell width="20%">
                         {isGoogleResponseLoading
                             ? <CircularProgress style={{ height: "24px", width: "24px" }} />
                             : (googleResponse ? <DoneIcon sx={{ color: "green" }} /> : <CloseIcon sx={{ color: "red" }} />)}
-                        {googleResponse}
                     </TableCell>
                 </TableRow>
             </TableBody>
