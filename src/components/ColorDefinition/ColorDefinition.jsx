@@ -1,8 +1,10 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import React from "react";
 import classes from "./ColorDefinition.module.css";
+import ColorPickerCircle from "./color/ColorPickerCircle";
 
-const ColorDefinition = () => {
+const ColorDefinition = ({ noindexColor, setNoindexColor, nofollowColor, setNofollowColor, onChangeColor }) => {
+
     return (
         <div className={classes.colorDefinition}>
             <div className={classes.container}>
@@ -16,7 +18,7 @@ const ColorDefinition = () => {
                     <TableBody>
                         <TableRow>
                             <TableCell>
-                                <span className={classes.dot} style={{ backgroundColor: "#0307fb" }} />
+                                <ColorPickerCircle onChangeComplete={onChangeColor} color={noindexColor} setColor={setNoindexColor} />
                             </TableCell>
                             <TableCell>
                                 Блоки, выделенные <code>&lt;noindex&gt;</code>
@@ -24,7 +26,7 @@ const ColorDefinition = () => {
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <span className={classes.dot} style={{ backgroundColor: "#03defb" }} />
+                                <ColorPickerCircle onChangeComplete={onChangeColor} color={nofollowColor} setColor={setNofollowColor} />
                             </TableCell>
                             <TableCell>
                                 <code>
@@ -32,36 +34,6 @@ const ColorDefinition = () => {
                                 </code>
                             </TableCell>
                         </TableRow>
-                        {/* <TableRow>
-                            <TableCell>
-                                <span className={classes.dot} style={{ backgroundColor: "#fb0303" }} />
-                            </TableCell>
-                            <TableCell>
-                                <code>
-                                    &lt;meta name="robots" content="noindex,nofollow" /&gt;
-                                </code>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>
-                                <span className={classes.dot} style={{ backgroundColor: "#ff6868" }} />
-                            </TableCell>
-                            <TableCell>
-                                <code>
-                                    &lt;meta name="robots" content="noindex" /&gt;
-                                </code>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>
-                                <span className={classes.dot} style={{ backgroundColor: "#ffc1c1" }} />
-                            </TableCell>
-                            <TableCell>
-                                <code>
-                                    &lt;meta name="robots" content="nofollow" /&gt;
-                                </code>
-                            </TableCell>
-                        </TableRow> */}
                     </TableBody>
                 </Table>
             </div>

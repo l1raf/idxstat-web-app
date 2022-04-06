@@ -1,9 +1,0 @@
-noindex {
-    background-color: #0307fb !important;
-    background: #0307fb;
-    color: #ffffff;
-}
-
-*[ref~="nofollow"], *[rel~="nofollow"] {
-    background-color: #03defb;
-}
