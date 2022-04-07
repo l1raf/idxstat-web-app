@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const API_URL = "https://indexstatapi.azurewebsites.net/";
+// export const API_URL = process.env.REACT_APP_API_URL;
 
 export default class IndexingService {
     static getSourceForYandex(url, noindexColor, nofollowColor) {
