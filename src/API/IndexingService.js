@@ -15,14 +15,12 @@ export default class IndexingService {
     }
 
     static async getYandexIndexing(url) {
-        //TODO: replace with real call
-        const response = await axios.get(`${API_URL}indexing/status/fake?uri=${encodeURIComponent(url)}&engine=yandex`);
+        const response = await axios.get(`${API_URL}indexing/status?uri=${encodeURIComponent(url)}&engine=yandex`);
         return response.data;
     }
 
     static async getGoogleIndexing(url) {
-        //TODO: replace with real call
-        const response = await axios.get(`${API_URL}indexing/status/fake?uri=${encodeURIComponent(url)}&engine=google`);
+        const response = await axios.get(`${API_URL}indexing/status?uri=${encodeURIComponent(url)}&engine=google`);
         return response.data;
     }
 }
