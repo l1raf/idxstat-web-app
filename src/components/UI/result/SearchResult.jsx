@@ -6,7 +6,7 @@ import RobotsResult from "./RobotsResult/RobotsResult";
 import classes from "./SearchResult.module.css";
 
 const SearchResult = ({ url, googleResponse, yandexResponse, isYandexResponseLoading,
-    isGoogleResponseLoading, robotsResponse, headersResponse, robotsError, headersError }) => {
+    isGoogleResponseLoading, robotsResponse, headersResponse }) => {
 
     return (
         <div className={classes.searchResult}>
@@ -23,14 +23,8 @@ const SearchResult = ({ url, googleResponse, yandexResponse, isYandexResponseLoa
                 && (<RobotsResult robotsResponse={robotsResponse} />)}
             {(headersResponse && headersResponse.headers.length > 0)
                 && (<HeadersResult headersResponse={headersResponse} />)}
-            {(googleResponse || yandexResponse) && !(robotsError && headersError) &&
-                (<PageView
-                    webPageUrl={url}
-                    isGoogleResponseLoading={isGoogleResponseLoading}
-                    isYandexResponseLoading={isYandexResponseLoading}
-                    googleResponse={googleResponse}
-                    yandexResponse={yandexResponse}
-                />)}
+            {!(isYandexResponseLoading || isGoogleResponseLoading)
+                && (<PageView webPageUrl={url} />)}
         </div>
     );
 }

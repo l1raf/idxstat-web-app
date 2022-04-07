@@ -4,8 +4,7 @@ import IndexingService from "../../../../API/IndexingService";
 import ColorDefinition from "../../../ColorDefinition/ColorDefinition";
 import classes from "./PageView.module.css";
 
-const PageView = ({ webPageUrl, isGoogleResponseLoading,
-    isYandexResponseLoading, googleResponse, yandexResponse }) => {
+const PageView = ({ webPageUrl }) => {
 
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [show, setShow] = useState(false);
@@ -69,7 +68,7 @@ const PageView = ({ webPageUrl, isGoogleResponseLoading,
                     <ToggleButton style={{ height: "32px" }} value="yandex" disabled={engine === "yandex"}>Яндекс</ToggleButton>
                     <ToggleButton style={{ height: "32px" }} value="google" disabled={engine === "google"}>Google</ToggleButton>
                 </ToggleButtonGroup>
-                {(isPageLoading && ((!isYandexResponseLoading && yandexResponse) || (!isGoogleResponseLoading && googleResponse)))
+                {isPageLoading
                     ? (<div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
                         <Box sx={{ width: '100%' }}>
                             <LinearProgress />
