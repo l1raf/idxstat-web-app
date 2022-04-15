@@ -1,7 +1,7 @@
 import { Box, Button, Collapse, LinearProgress, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import React, { useState } from "react";
 import IndexingService from "../../../../API/IndexingService";
-import ColorDefinition from "../../../ColorDefinition/ColorDefinition";
+import ColorDefinition from "../../ColorDefinition/ColorDefinition";
 import classes from "./PageView.module.css";
 
 const PageView = ({ webPageUrl }) => {
